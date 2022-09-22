@@ -1,0 +1,13 @@
+package kr.or.ddit.basic;
+
+import java.util.LinkedList;
+
+public class T02StackQueueTest {
+	public static void main(String[] args) {
+		/*
+		  Stack => 후입선출(LIFT)의 자료구조
+		  Queue => 선입선출(FIFO)의 자료구조
+		 */
+		LinkedList<String> stack = new LinkedList<String>();
+	}
+}
