@@ -1,0 +1,17 @@
+package kr.or.ddit.basic;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.TreeSet;
+
+public class T06TreeSetTest {
+	public static void main(String[] args) {
+		// TreeSet은 자동 정렬 기능이 들어가 있다.
+		
+		TreeSet<String> ts = new TreeSet<String>();
+		
+		List<String> abList = new ArrayList<String>();
+		
+		
+	}
+}

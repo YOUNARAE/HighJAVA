@@ -1,0 +1,18 @@
+package kr.or.ddit.basic;
+
+public class T07EqualsHashcodeTest {
+	
+	/*
+	 * 해시함수(hash function)는 임의의 길이의 데이터를 고정된 길이의 데이터로 매핑해주는 함수이다.
+	 * 해시 함수에 의해 얻어지는 값은 해시값, 해시코드, 해시 체크썸 또는 간단하게 해시라고 한다.
+	 * 
+	 * HashSet, HashMap, Hashtable과 같은 객체들을 사용할 경우 객체가 서로 같은지를 비교하기 위해 
+	 * eqauls()와 hashcode()를 호출한다. 그래서 객체가 서로 같은지 여부를 결정하려면 두 메서드를 재정의 해야한다.
+	 * 
+	 * HasSet, HashMap, Hashtable에서 객체가 같은지 여부는 데이터를 추가할 때 검사한다.
+	 * 
+	 * 
+	 * - equals() => 두 객체의 내용(값)이 같은지 비교하는 메서드.
+	 * - hashCode() => 객체에 대한 해시 코드값을 반환하는 메서드.
+	 */
+}
