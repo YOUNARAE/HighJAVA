@@ -30,7 +30,7 @@ public class Planet{
 	
 	public static void main(String[] args) {
 		for (EnumPlanet enp : EnumPlanet.values()) {
-			System.out.println(enp.name() + " : " + (4 * Math.PI * Math.pow(enp.getRadius(), 2))+"㎢");
+			System.out.println(enp.name() + " : " + (4 * Math.PI * enp.getRadius()*enp.getRadius())+"㎢");
 		}
 		
 	}
