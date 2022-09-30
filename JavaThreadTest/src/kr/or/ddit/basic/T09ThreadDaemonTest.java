@@ -7,6 +7,7 @@ public class T09ThreadDaemonTest {
 		
 		//스타트 시키기 전에 설정할 것이 있으면 미리 설정시켜놓고 스타트해야함
 		//데몬스레드로 설정하기 (start() 호출전에 설정한다.)
+		
 		autoSave.setDaemon(true);
 		autoSave.start();
 		
