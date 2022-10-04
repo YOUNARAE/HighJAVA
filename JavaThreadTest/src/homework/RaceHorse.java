@@ -6,15 +6,11 @@ import java.util.Collections;
 import java.util.List;
 
 public class RaceHorse {
-	
-	/*
-	 * 3개(명)의 스레드가 각각 알파벳 대문자를 출력하는데 출력을 끝낸 순서대로 결과를 나타내는 프로그램 작성하기. (쓰레드 3개를 만들어서
-	 * 각각 출력)
-	 */
+
 	static int currRank = 1; //현재의 순위 정보
 	
 	public static void main(String[] args) {
-		
+		 
 		List<Horse> horseList = new ArrayList<Horse>();
 		
 		horseList.add(new Horse("1번마"));
@@ -53,7 +49,6 @@ public class RaceHorse {
 	}
 }
 
-// 알파벳 대문자 출력하는 스레드
 class Horse extends Thread implements Comparable<Horse>{
 
 	// 이름을 관리해줘보자(멤버변수)
@@ -64,16 +59,13 @@ class Horse extends Thread implements Comparable<Horse>{
 		this.horsename = horsename;
 	}
 	
-
 	public String getHorseName() {
 		return horsename;
 	}
 
-
 	public void setHorseName(String horsename) {
 		this.horsename = horsename;
 	}
-
 
 	public int getRank() { //스레드의 순위 정보
 		return rank;
@@ -83,7 +75,6 @@ class Horse extends Thread implements Comparable<Horse>{
 		this.rank = rank;
 	}
 	
-
 	// 스레드
 	@Override
 	public void run() {
@@ -103,7 +94,6 @@ class Horse extends Thread implements Comparable<Horse>{
 			} 
 		}
 		System.out.println(horsename + "끝 ...");
-	
 		setRank(RaceHorse.currRank++); //전위와 후위의 차이 ++전행=>2시작 , 후행++=>1부터 시작
 	}
 
