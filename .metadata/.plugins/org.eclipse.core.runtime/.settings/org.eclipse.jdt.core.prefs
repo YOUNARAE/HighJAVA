@@ -1,7 +1,10 @@
 eclipse.preferences.version=1
+org.eclipse.jdt.core.classpathVariable.ECLIPSE_HOME=D\:/B_Util/3.Eclipse/eclipse-jee-2020-06-R-win32-x86_64/eclipse/
 org.eclipse.jdt.core.classpathVariable.JRE_LIB=D\:/B_Util/2.Java/JDK1.8/jre/lib/rt.jar
 org.eclipse.jdt.core.classpathVariable.JRE_SRC=D\:/B_Util/2.Java/JDK1.8/src.zip
 org.eclipse.jdt.core.classpathVariable.JRE_SRCROOT=
+org.eclipse.jdt.core.classpathVariable.JUNIT_HOME=D\:/B_Util/3.Eclipse/eclipse-jee-2020-06-R-win32-x86_64/eclipse/plugins/org.junit_4.13.0.v20200204-1500.jar
+org.eclipse.jdt.core.classpathVariable.M2_REPO=C\:/Users/PC-06/.m2/repository
 org.eclipse.jdt.core.codeComplete.visibilityCheck=enabled
 org.eclipse.jdt.core.compiler.codegen.inlineJsrBytecode=enabled
 org.eclipse.jdt.core.compiler.codegen.targetPlatform=1.8
