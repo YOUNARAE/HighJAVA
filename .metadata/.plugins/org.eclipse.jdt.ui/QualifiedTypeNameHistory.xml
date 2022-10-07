@@ -1,14 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="kr.or.ddit.basic.ThreadStopEx1"/>
-<fullyQualifiedTypeName name="kr.or.ddit.basic.ThreadStopEx2"/>
-<fullyQualifiedTypeName name="kr.or.ddit.basic.CalcPIThread"/>
-<fullyQualifiedTypeName name="kr.or.ddit.basic.PrintaPIThread"/>
-<fullyQualifiedTypeName name="kr.or.ddit.basic.ShareData"/>
-<fullyQualifiedTypeName name="homework.DisplayCharacter"/>
-<fullyQualifiedTypeName name="kr.or.ddit.basic.ShareObject"/>
-<fullyQualifiedTypeName name="com.sun.management.jmx.Trace"/>
-<fullyQualifiedTypeName name="kr.or.ddit.basic.SyncAccount"/>
 <fullyQualifiedTypeName name="java.util.concurrent.locks.Lock"/>
 <fullyQualifiedTypeName name="java.lang.Exception"/>
 <fullyQualifiedTypeName name="kr.or.ddit.basic.LockAccount"/>
@@ -38,26 +29,35 @@
 <fullyQualifiedTypeName name="kr.or.ddit.basic.T03ByteArrayIOTest"/>
 <fullyQualifiedTypeName name="java.io.ByteArrayInputStream"/>
 <fullyQualifiedTypeName name="java.io.ByteArrayOutputStream"/>
-<fullyQualifiedTypeName name="java.io.FileOutputStream"/>
-<fullyQualifiedTypeName name="java.io.FileInputStream"/>
 <fullyQualifiedTypeName name="kr.or.ddit.basic.homework.TulipsCopy"/>
 <fullyQualifiedTypeName name="org.xml.sax.InputSource"/>
 <fullyQualifiedTypeName name="java.io.InputStream"/>
-<fullyQualifiedTypeName name="java.io.InputStreamReader"/>
-<fullyQualifiedTypeName name="java.lang.System"/>
 <fullyQualifiedTypeName name="java.io.FileWriter"/>
 <fullyQualifiedTypeName name="jdk.nashorn.internal.runtime.regexp.joni.ScanEnvironment"/>
-<fullyQualifiedTypeName name="java.io.FileReader"/>
 <fullyQualifiedTypeName name="java.lang.Comparable"/>
 <fullyQualifiedTypeName name="java.util.Comparator"/>
 <fullyQualifiedTypeName name="com.sun.xml.internal.ws.policy.privateutil.PolicyUtils.Collections"/>
 <fullyQualifiedTypeName name="java.util.Collections"/>
 <fullyQualifiedTypeName name="practice.ScoreRankDesc"/>
 <fullyQualifiedTypeName name="practice.Student"/>
-<fullyQualifiedTypeName name="java.io.IOException"/>
 <fullyQualifiedTypeName name="java.io.File"/>
 <fullyQualifiedTypeName name="java.util.List"/>
 <fullyQualifiedTypeName name="java.util.ArrayList"/>
 <fullyQualifiedTypeName name="java.text.SimpleDateFormat"/>
 <fullyQualifiedTypeName name="java.util.Date"/>
+<fullyQualifiedTypeName name="java.io.InputStreamReader"/>
+<fullyQualifiedTypeName name="java.io.BufferedInputStream"/>
+<fullyQualifiedTypeName name="java.io.BufferedOutputStream"/>
+<fullyQualifiedTypeName name="java.io.IOException"/>
+<fullyQualifiedTypeName name="java.io.FileReader"/>
+<fullyQualifiedTypeName name="java.io.BufferedReader"/>
+<fullyQualifiedTypeName name="java.io.DataOutputStream"/>
+<fullyQualifiedTypeName name="java.io.FileInputStream"/>
+<fullyQualifiedTypeName name="java.io.DataInputStream"/>
+<fullyQualifiedTypeName name="java.io.PrintStream"/>
+<fullyQualifiedTypeName name="java.lang.System"/>
+<fullyQualifiedTypeName name="java.io.FileOutputStream"/>
+<fullyQualifiedTypeName name="java.io.PrintWriter"/>
+<fullyQualifiedTypeName name="java.io.OutputStream"/>
+<fullyQualifiedTypeName name="java.io.OutputStreamWriter"/>
 </qualifiedTypeNameHistroy>

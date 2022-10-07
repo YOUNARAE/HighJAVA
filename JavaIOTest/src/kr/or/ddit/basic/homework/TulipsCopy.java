@@ -21,6 +21,9 @@ public class TulipsCopy {
 			}
 			System.out.println("파일 복사 작업 완료....");
 			
+			fis.close();
+			fos.close();
+			
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		}

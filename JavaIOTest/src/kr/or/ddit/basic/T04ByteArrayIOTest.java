@@ -16,7 +16,7 @@ public class T04ByteArrayIOTest {
 		ByteArrayInputStream bais = new ByteArrayInputStream(inSrc);
 		ByteArrayOutputStream baos = new ByteArrayOutputStream();
 		
-		int readBytes = 0;
+		int readBytes = 0; //파라미터로 넣어준 데이터의 갯수를 읽은 값을 리턴한다
 		
 		while((readBytes = bais.read(temp)) != -1) { //임시 이용공간을 이용해 데이터를 넣을때에는 임시 저장공간이 몇 바이트를 읽었는지 바이트 수를 반환받는 것이다
 			baos.write(temp, 0, readBytes);

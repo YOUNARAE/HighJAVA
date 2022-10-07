@@ -18,7 +18,7 @@ public class T07FileWriterTest {
 		// 
 		InputStreamReader isr = new InputStreamReader(System.in); //System.in은 콘솔을 의미한다
 		
-		FileWriter fw = null; //파일 출력용 문자 기반 스트림, 보조스트림
+		FileWriter fw = null; //파일 출력용 문자 기반 스트림
 		
 		
 		try {
