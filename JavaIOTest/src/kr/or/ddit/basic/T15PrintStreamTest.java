@@ -20,7 +20,7 @@ public class T15PrintStreamTest {
 		  PrintStream은 모든 자료형을 출력할 수 있는 기능을 제공하는 
 		  OutputStream의 서브클래스이다.
 		 */
-//		PrintStream out = new PrintStream(System.out);
+		// PrintStream out = new PrintStream(System.out);
 		PrintStream out = new PrintStream(fos);
 		
 		out.print("안녕하세요. PrintStream 입니다.\n");

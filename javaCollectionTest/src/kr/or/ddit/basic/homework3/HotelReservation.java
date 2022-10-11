@@ -9,7 +9,7 @@ import java.util.Set;
 
 public class HotelReservation {
 	//호텔 운영을 관리하는 프로그램 작성.(Map이용) - 키값은 방번호 
-	private Map<String, Reservation> reservationRoomMap; //키 값에 맞는 밸류값을 폰에서 가져온다
+	private Map<String, Reservation> reservationRoomMap; //ㅔ
 	private Scanner scan;
 	
 	public HotelReservation() {

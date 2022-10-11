@@ -16,10 +16,13 @@ public class TulipsCopy {
 			
 			int copy;
 			
+			long start = System.currentTimeMillis();
+			
 			while((copy = fis.read()) != -1) {
 				fos.write(copy);
 			}
-			System.out.println("파일 복사 작업 완료....");
+			long end = System.currentTimeMillis();
+			System.out.println("파일 복사 작업 완료.... 걸린시간은 " + (end-start));
 			
 			fis.close();
 			fos.close();

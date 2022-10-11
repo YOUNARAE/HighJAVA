@@ -1,4 +1,12 @@
-package kr.or.ddit.basic;
+package kr.or.ddit.basic.homework;
+import java.io.BufferedInputStream;
+import java.io.BufferedOutputStream;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
@@ -6,70 +14,11 @@ import java.util.Scanner;
 import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap.KeySetView;
 
-/*
-문제) 이름, 주소, 전화번호 속성을 갖는 Phone클래스를 만들고, 이 Phone클래스를 이용하여 
-	  전화번호 정보를 관리하는 프로그램을 완성하시오.
-	  이 프로그램에는 전화번호를 등록, 수정, 삭제, 검색, 전체출력하는 기능이 있다.
-	  
-	  전체의 전화번호 정보는 Map을 이용하여 관리한다.
-	  (key는 '이름'으로 하고 value는 'Phone클래스의 인스턴스'로 한다.)
-
-
-실행예시)
-===============================================
-   전화번호 관리 프로그램(파일로 저장되지 않음)
-===============================================
-
-  메뉴를 선택하세요.
-  1. 전화번호 등록
-  2. 전화번호 수정
-  3. 전화번호 삭제
-  4. 전화번호 검색
-  5. 전화번호 전체 출력
-  0. 프로그램 종료
-  번호입력 >> 1  <-- 직접 입력
-  
-  새롭게 등록할 전화번호 정보를 입력하세요.
-  이름 >> 홍길동  <-- 직접 입력
-  전화번호 >> 010-1234-5678  <-- 직접 입력
-  주소 >> 대전시 중구 대흥동 111  <-- 직접 입력
-  
-  메뉴를 선택하세요.
-  1. 전화번호 등록
-  2. 전화번호 수정
-  3. 전화번호 삭제
-  4. 전화번호 검색
-  5. 전화번호 전체 출력
-  0. 프로그램 종료
-  번호입력 >> 5  <-- 직접 입력
-  
-  =======================================
-  번호   이름       전화번호         주소
-  =======================================
-   1    홍길동   010-1234-5678    대전시
-   ~~~~~
-   
-  =======================================
-  출력완료...
-  
-  메뉴를 선택하세요.
-  1. 전화번호 등록
-  2. 전화번호 수정
-  3. 전화번호 삭제
-  4. 전화번호 검색
-  5. 전화번호 전체 출력
-  0. 프로그램 종료
-  번호입력 >> 0  <-- 직접 입력
-  
-  프로그램을 종료합니다...
-  
-*/
-
-public class T09PhoneBookTest {
+public class PhoneBook {
 	private Scanner scan;
 	private Map<String, Phone> phoneBookMap; //키 값에 맞는 밸류값을 폰에서 가져온다
 	
-	public T09PhoneBookTest() {
+	public PhoneBook() {
 		scan = new Scanner(System.in);
 		phoneBookMap = new HashMap<String, Phone>();
 	}
@@ -246,21 +195,75 @@ public class T09PhoneBookTest {
 	
 		String addr = scan.nextLine(); //공백까지 포함해서 한 줄을 다 받아오는 것이 nextLine
 		
-		Phone p = new Phone(name, tel, addr);
+		Phone p1 = new Phone(name, tel, addr);
 		
-		phoneBookMap.put(name, p);
+		phoneBookMap.put(name, p1);
 		System.out.println(name + "씨 정보 등록 완료 ...");
+		
+		ObjectOutputStream oos = null;
+		
+		try {
+			oos = new ObjectOutputStream(
+					new BufferedOutputStream(
+						new FileOutputStream("d:/D_Other/phoneBook.bin")));
+			
+			// 쓰기 작업
+			oos.writeObject(p1); // 직렬화
+			
+		} catch (IOException ex) {
+			ex.printStackTrace();
+		} finally {
+			try {
+				oos.close();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+		
+		ObjectInputStream ois = null;
+		
+		try {
+			
+			ois = new ObjectInputStream(
+					new BufferedInputStream(
+						new FileInputStream("d:/D_Other/phoneBook.bin")));
+			
+			// 읽기 작업
+			Object obj = null;
+			while((obj = ois.readObject()) != null) {
+				// 읽어온 데이터를 원래의 객체형으로 변환 후 사용한다.
+				Phone p = (Phone) obj;
+				System.out.println("이름 : " + p.getName());
+				System.out.println("전화번호 : " + p.getTel());
+				System.out.println("주소 : " + p.getAddr());
+				System.out.println("------------------------");
+			}
+			
+			
+		} catch (IOException ex) {
+			// 더 이상 읽어올 객체가 없으면 예외발생함.
+			System.out.println("출력작업 끝...");
+			//ex.printStackTrace();
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				ois.close();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
 	}
 
 	public static void main(String[] args) {
-		new T09PhoneBookTest().phoneBookStart();
+		new PhoneBook().phoneBookStart();
 	}
 }
 
 /**
  * 전화번호 정보를 저장하기 위한 VO 클래스 , VO(Value Object) : 정보나 값을 저장하기 위한 객체들
  */
-class Phone { 
+class Phone implements Serializable { 
 	private String name; //이름
 	private String tel; //전화번호
 	private String addr; //주소
@@ -338,6 +341,5 @@ class Phone {
 		return true;
 	}
 }
-
 
 
