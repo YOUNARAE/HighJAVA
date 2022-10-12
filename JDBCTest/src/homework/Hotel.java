@@ -1,5 +1,9 @@
-package kr.or.ddit.basic.homework;
+package homework;
 
+import java.io.BufferedOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -8,10 +12,20 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.InputMismatchException;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Scanner;
 
+/*
+ 테이블생성 쿼리문
+ create table hotel(
+    room_id varchar2(8) not null,  -- 방ID
+    mem_name varchar2(100) not null, -- 이름
+    reg_dt DATE DEFAULT sysdate, -- 등록일
+    CONSTRAINT HOTEL_PK PRIMARY KEY (room_id)
+);
+ */
 
 public class Hotel {
 	
@@ -42,68 +56,110 @@ public class Hotel {
 		System.out.println("호텔 문을 열었습니다");
 		System.out.println("**************************************");
 		
-		while(true) {
-			displayMenu();
-			int menuNum = scan.nextInt();
-			
-			switch(menuNum) {
+		try {
+			int menuNum;
+			do {
+				displayMenu();
+				menuNum = scan.nextInt();
+				switch(menuNum) {
 				case 1: 
 					insert();
 					break;
 				case 2: 
-					//delete();
+					delete();
 					break;
 				case 3: 
-					//selectAll();
+					selectAll();
 					break;
 				case 4: // 작업 끝
 					System.out.println("작업을 마칩니다.");
 					break;
 				default: 
 					System.out.println("잘못된 입력입니다. 선택할 메뉴 번호를 다시 입력하세요");
-			}//case문 끝
-		} //while문 끝
+				}//case문 끝
+			} while(menuNum!=4);
+		} catch (InputMismatchException ex) {
+			System.out.println("메뉴를 숫자로 제대로 입력해야지 임마");
+			displayMenu();
+		} 
 	}//openHotel메서드 끝
 	
-	
-	
-	//select 
-	private void selectAll() { //조회한다
-		/*
-		System.out.println("***** 예약내역확인 *****");		
-		System.out.print("방번호를 입력하세요 >> ");
-		String roomId = scan.next();
+	/**
+	 * 예약정보를 모두 조회하는 메서드
+	 */
+	private void selectAll() {
+		System.out.println("------------------------------");
+		System.out.println("  예약 호실\t예약이름\t예약완료시간    ");
+		System.out.println("------------------------------");
 		
 		try {
-			conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe", "WDH94", "java");
 			
-			String sql = "SELECT * "
-					   + "FROM hotel "
-					   + "WHERE ROOM_ID=?";
+			conn = JDBCUtil.getConnection();
 			
-			pstmt = conn.prepareStatement(sql);
+			String sql = "select * from hotel";
 			
-			pstmt.setString(1, roomId);
-						
-			rs = pstmt.executeQuery();
+			stmt = conn.createStatement();
 			
-			if (rs.next()) {
-				String title = rs.getString("방 번호");
-				String content = rs.getString("예약자");
-				Date registerDate = rs.getDate("예약한 시간");
+			rs = stmt.executeQuery(sql);
+			
+			while (rs.next()) {
+				String roomId = rs.getString("ROOM_ID");
+				String memName = rs.getString("MEM_NAME");
+				String rsDate = rs.getString("REG_DT");
+				
+				System.out.println(roomId + "\t"
+							      + memName + "\t"
+							      + rsDate);
 			}
-			
+			System.out.println("------------------------------");
+			System.out.println(" 출력작업 끝났는데 퇴근해도 됩니까");
 			
 		} catch (SQLException ex) {
 			ex.printStackTrace();
 		} finally {
-			if(rs != null) try {rs.close();} catch(SQLException ex) {}
-			if(stmt != null) try {stmt.close();} catch(SQLException ex) {}
-			if(pstmt != null) try {pstmt.close();} catch(SQLException ex) {}
-			if(conn != null) try {conn.close();} catch(SQLException ex) {}
-		}*/
+			JDBCUtil.close(conn, pstmt, pstmt, rs);
+		}
+		
+	}
+
+	/**
+	 * 예약정보를 삭제하는 메서드
+	 */
+	private void delete() {
+		System.out.println();
+		System.out.println("삭제할 예약 정보를 입력해주세요.");
+		System.out.println("방 번호 입력 >> ");
+		
+		String roomId = scan.next();
+		
+		try {
+			
+			conn = JDBCUtil.getConnection();
+			
+			String sql = "delete from hotel where room_id = ?";
+			
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, roomId);
+			
+			int cnt = pstmt.executeUpdate();
+			
+			if(cnt>0) {
+				System.out.println(roomId + "예약 정보 삭제 성공");
+			} else {
+				System.out.println(roomId + "예약 정보 삭제 실패!!!");
+			}
+			
+		} catch (SQLException ex) {
+			ex.printStackTrace();
+		} finally {
+			JDBCUtil.close(conn, pstmt, pstmt, rs);
+		}
+		
 	}
 	
+	/**
+	 * 회원정보 추가하는 메서드
+	 */
 	//insert
 	private void insert() {
 		
@@ -133,21 +189,15 @@ public class Hotel {
 		
 		
 		//JDBC코딩을 위한 템플릿이나 마찬가지인 부분
-		
 		try {
-			
-			//
-			conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe", "WDH94", "java");
-			
-			//
+			conn = JDBCUtil.getConnection();
+				
 			String sql = "insert into hotel "
 					   + "(ROOM_ID, MEM_NAME, REG_DT)"
 					   + " values (?,?,sysdate)";
 			
-			//
 			pstmt = conn.prepareStatement(sql);
-			
-			// 
+			 
 			pstmt.setString(1, roomId);
 			pstmt.setString(2, memName);
 			
@@ -163,15 +213,47 @@ public class Hotel {
 		} catch (SQLException ex) {
 			ex.printStackTrace();
 		} finally {
-			if(rs != null) try {rs.close();} catch(SQLException ex) {}
-			if(stmt != null) try {stmt.close();} catch(SQLException ex) {}
-			if(pstmt != null) try {pstmt.close();} catch(SQLException ex) {}
-			if(conn != null) try {conn.close();} catch(SQLException ex) {}
+			JDBCUtil.close(conn, pstmt, pstmt, rs);
 		}
 	}
-
+	/**
+	 * 룸번호를 이용하여 회원이 존재하는지 체크하기 위한 메서드
+	 * @param roomId 체크할 회원 ID
+	 * @return 존재하면 true, 존재하지 않으면 false
+	 */
 	private boolean checkMember(String roomId) {
-		return false;
+		
+		boolean exist = false;
+		
+		try {
+			
+			conn = JDBCUtil.getConnection();
+			
+			String sql = "select count(*) as cnt " 
+			           + "from hotel " 
+					   + "where room_id = ?";
+			
+			pstmt = conn.prepareStatement(sql); //
+			pstmt.setString(1, roomId);
+			
+			rs = pstmt.executeQuery();
+			
+			int cnt = 0;
+			
+			while (rs.next()) {
+				cnt = rs.getInt("cnt");
+			}
+			
+			if(cnt > 0) {
+				exist=true;
+			}
+			
+		} catch (SQLException ex) {
+			ex.printStackTrace();
+		} finally {
+			JDBCUtil.close(conn, pstmt, pstmt, rs);
+		}
+		return exist;
 	}
 	
 	//main
@@ -184,11 +266,13 @@ public class Hotel {
 class Reservation {
 	private String roomId; //예약룸
 	private String memName; //예약자 이름
+	private Date rsDate; //예약한 시간
 	
-	public Reservation(String roomId, String memName) {
+	public Reservation(String roomId, String memName, Date rsDate) {
 		super();
 		this.roomId = roomId;
 		this.memName = memName;
+		this.rsDate = rsDate;
 	}
 
 	public String getRoomId() {

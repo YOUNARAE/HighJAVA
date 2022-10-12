@@ -88,6 +88,7 @@ public class PhoneBook {
 			System.out.println( "전화번호 : " + p.getTel() );
 			System.out.println( "주    소 : " + p.getAddr() );
 		}
+		
 	}
 
 	/**
@@ -98,23 +99,59 @@ public class PhoneBook {
 		System.out.println("번호 \t이름\t전화번호\t주소");
 		System.out.println("======================================");
 		
-		Set<String> keySet = phoneBookMap.keySet();
+
+		ObjectInputStream ois = null;
 		
-		if(keySet.size() == 0 ) {
-			System.out.println("등록된 전화번호가 존재하지 않습니다.");
-		} else {
-			Iterator<String> it = keySet.iterator();
+		try {
 			
-			int cnt = 0;
-			while(it.hasNext()) {
-				cnt++;
-				String name = it.next();
-				Phone p = phoneBookMap.get(name);
+			ois = new ObjectInputStream(
+					new BufferedInputStream(
+						new FileInputStream("d:/D_Other/phoneBook.bin")));
+			
+			Set<String> keySet = phoneBookMap.keySet();
+			
+			if(keySet.size() == 0 ) {
+				System.out.println("등록된 전화번호가 존재하지 않습니다.");
+			} else {
+				Iterator<String> it = keySet.iterator();
 				
-				System.out.println(" " + cnt + "\t" + p.getName() 
-				                   + "\t" + p.getTel() + "\t" + p.getAddr());
+				int cnt = 0;
+				while(it.hasNext()) {
+					cnt++;
+					String name = it.next();
+					Phone p = phoneBookMap.get(name);
+					
+					System.out.println(" " + cnt + "\t" + p.getName() 
+					                   + "\t" + p.getTel() + "\t" + p.getAddr());
+				}
+			}
+			
+			// 읽기 작업
+			Object obj = null;
+			while((obj = ois.readObject()) != null) {
+				// 읽어온 데이터를 원래의 객체형으로 변환 후 사용한다.
+				Phone p = (Phone) obj;
+				System.out.println("이름 : " + p.getName());
+				System.out.println("전화번호 : " + p.getTel());
+				System.out.println("주소 : " + p.getAddr());
+				System.out.println("------------------------");
+			}
+			
+		} catch (IOException ex) {
+			// 더 이상 읽어올 객체가 없으면 예외발생함.
+			System.out.println("출력작업 끝...");
+			//ex.printStackTrace();
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				ois.close();
+			} catch (IOException e) {
+				e.printStackTrace();
 			}
 		}
+		
+		
 		System.out.println("======================================");
 		System.out.println("출력 완료 ....");
 	}
@@ -195,9 +232,9 @@ public class PhoneBook {
 	
 		String addr = scan.nextLine(); //공백까지 포함해서 한 줄을 다 받아오는 것이 nextLine
 		
-		Phone p1 = new Phone(name, tel, addr);
+		Phone p = new Phone(name, tel, addr);
 		
-		phoneBookMap.put(name, p1);
+		phoneBookMap.put(name, p);
 		System.out.println(name + "씨 정보 등록 완료 ...");
 		
 		ObjectOutputStream oos = null;
@@ -208,7 +245,7 @@ public class PhoneBook {
 						new FileOutputStream("d:/D_Other/phoneBook.bin")));
 			
 			// 쓰기 작업
-			oos.writeObject(p1); // 직렬화
+			oos.writeObject(p); // 직렬화
 			
 		} catch (IOException ex) {
 			ex.printStackTrace();
@@ -220,39 +257,6 @@ public class PhoneBook {
 			}
 		}
 		
-		ObjectInputStream ois = null;
-		
-		try {
-			
-			ois = new ObjectInputStream(
-					new BufferedInputStream(
-						new FileInputStream("d:/D_Other/phoneBook.bin")));
-			
-			// 읽기 작업
-			Object obj = null;
-			while((obj = ois.readObject()) != null) {
-				// 읽어온 데이터를 원래의 객체형으로 변환 후 사용한다.
-				Phone p = (Phone) obj;
-				System.out.println("이름 : " + p.getName());
-				System.out.println("전화번호 : " + p.getTel());
-				System.out.println("주소 : " + p.getAddr());
-				System.out.println("------------------------");
-			}
-			
-			
-		} catch (IOException ex) {
-			// 더 이상 읽어올 객체가 없으면 예외발생함.
-			System.out.println("출력작업 끝...");
-			//ex.printStackTrace();
-		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
-		} finally {
-			try {
-				ois.close();
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-		}
 	}
 
 	public static void main(String[] args) {
