@@ -39,24 +39,24 @@ public class HotelReservation {
 		System.out.println("호텔 문을 열었습니다");
 		System.out.println("*****************");
 		
-		int menuNum; 
+		String menuNum; 
 		do {
 			displayMenu();
-			menuNum = scan.nextInt();
+			menuNum = scan.next();
 			switch (menuNum) {
-			case 1: insert();
+			case "1": insert();
 				break;
-			case 2: delete();
+			case "2": delete();
 				break;
-			case 3: selectAll();	
+			case "3": selectAll();	
 				break;
-			case 4: 
+			case "4": 
 				System.out.println("프로그램을 종료합니다...");
 				return;
 			default:
 				System.out.println("잘못된 입력입니다. 선택할 메뉴 번호를 입력해주세요");
 			}//case문 끝
-		} while(menuNum!=4);//while문 끝
+		} while(menuNum!="4");//while문 끝
 	}//start메서드 끝
 	
 	/**
@@ -85,49 +85,48 @@ public class HotelReservation {
 			
 			ois = new ObjectInputStream(
 					new BufferedInputStream(
-						new FileInputStream("d:/D_Other/phoneBook.bin")));
+						new FileInputStream("d:/D_Other/hotel.bin")));
 			
 			Set<String> keySet = reservationRoomMap.keySet();
 			
-			if(keySet.size()==0) {
-				System.out.println("체크인 내역이 없습니다");
-			} else {
-				Iterator<String> it = keySet.iterator();
-				
-				int cnt = 0;
-				while(it.hasNext()) {
-					cnt++;
-					String room = it.next();
-					Reservation r = reservationRoomMap.get(room);
-					System.out.println("--------------------------------");
-					System.out.println(cnt + ". " + "방 번호 : " + r.getName() + ",\t투숙객 : " + r.getRoom());
-				}
-			}
+//			if(keySet.size()==0) {
+//				System.out.println("체크인 내역이 없습니다");
+//			} else {
+//				Iterator<String> it = keySet.iterator();
+//				
+//				int cnt = 0;
+//				while(it.hasNext()) {
+//					cnt++;
+//					String room = it.next();
+//					Reservation r = reservationRoomMap.get(room);
+//					System.out.println("--------------------------------");
+//					System.out.println(cnt + ". " + "방 번호 : " + r.getName() + ",\t투숙객 : " + r.getRoom());
+//				}
+//			}
 			// 읽기 작업
-				Object obj = null;
-				while((obj = ois.readObject()) != null) {
-					// 읽어온 데이터를 원래의 객체형으로 변환 후 사용한다.
-					Phone p = (Phone) obj;
-					System.out.println("이름 : " + p.getName());
-					System.out.println("전화번호 : " + p.getTel());
-					System.out.println("주소 : " + p.getAddr());
-					System.out.println("------------------------");
-				}
+			Object obj = null;
+			while((obj = ois.readObject()) != null) {
+				// 읽어온 데이터를 원래의 객체형으로 변환 후 사용한다.
+				Reservation r = (Reservation) obj;
+				System.out.println("------------------------");
+				System.out.println("예약한 호실 : " + r.getRoom());
+				System.out.println("예약자 이름 : " + r.getName());
+			}
 		} catch (IOException ex) {
 			// 더 이상 읽어올 객체가 없으면 예외발생함.
-			System.out.println("출력작업 끝...");
+			System.out.println("------------------------");
 			//ex.printStackTrace();
 		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
+			e.printStackTrace(); 
 		} finally {
 			try {
 				ois.close();
 			} catch (IOException e) {
 				e.printStackTrace();
-			}
+			} catch (NullPointerException ex) {
+				System.out.println("읽어올 내역이 아예 존재하지 않습니다. 저장을 먼저 하세요");
+			} 
 		}
-		System.out.println("======================================");
-		System.out.println("여기는 뜨나?");
 	}
 	
 	/**
@@ -150,7 +149,9 @@ public class HotelReservation {
 		String name = scan.next(); //공백,탭,스페이스 구분으로 뜯어서 받아올 수 있는 것이 next
 		
 		Reservation p = new Reservation(room, name);
+		
 		reservationRoomMap.put(room, p);
+		System.out.println(room + "호실 예약 완료 ...");
 		
 		//직렬화한다
 		ObjectOutputStream oos = null;
@@ -159,9 +160,19 @@ public class HotelReservation {
 			
 			oos = new ObjectOutputStream(
 					new BufferedOutputStream(
-						new FileOutputStream("d:/D_Other/Hotel.bin")));
+						new FileOutputStream("d:/D_Other/hotel.bin")));
 			
-			oos.writeObject(reservationRoomMap);
+			Set<String> keySet = reservationRoomMap.keySet();
+			Iterator<String> it = keySet.iterator();
+			
+			while(it.hasNext()) {
+				String strRoom = it.next();
+				Reservation tmp = reservationRoomMap.get(strRoom);
+				oos.writeObject(tmp);
+			}
+			
+			// 쓰기 작업
+			//oos.writeObject(reservationRoomMap);
 		} catch (IOException ex) {
 			ex.printStackTrace();
 		} finally {

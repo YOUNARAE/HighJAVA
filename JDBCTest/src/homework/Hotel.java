@@ -79,7 +79,7 @@ public class Hotel {
 				}//case문 끝
 			} while(menuNum!=4);
 		} catch (InputMismatchException ex) {
-			System.out.println("메뉴를 숫자로 제대로 입력해야지 임마");
+			System.out.println("메뉴를 숫자로 입력해야지");
 			displayMenu();
 		} 
 	}//openHotel메서드 끝

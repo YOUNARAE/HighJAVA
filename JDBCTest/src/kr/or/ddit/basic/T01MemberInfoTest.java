@@ -7,7 +7,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Scanner;
 
-import kr.or.ddit.util.JDBCUtil2;
+import kr.or.ddit.util.JDBCUtil3;
 
 /*
 	회원정보를 관리하는 프로그램을 작성하는데 
@@ -125,7 +125,7 @@ public class T01MemberInfoTest {
 		
 		try {
 			
-			conn = JDBCUtil2.getConnection();
+			conn = JDBCUtil3.getConnection();
 			
 			String sql = "select * from mymember";
 			
@@ -152,7 +152,7 @@ public class T01MemberInfoTest {
 		} catch (SQLException ex) {
 			ex.printStackTrace();
 		} finally {
-			JDBCUtil2.close(conn, stmt, pstmt, rs);
+			JDBCUtil3.close(conn, stmt, pstmt, rs);
 		}
 	}
 
@@ -169,7 +169,7 @@ public class T01MemberInfoTest {
 		
 		try {
 			
-			conn = JDBCUtil2.getConnection();
+			conn = JDBCUtil3.getConnection();
 			
 			String sql = "delete from mymember where mem_id = ?";
 			
@@ -188,7 +188,7 @@ public class T01MemberInfoTest {
 		} catch (SQLException ex) {
 			ex.printStackTrace();
 		} finally {
-			JDBCUtil2.close(conn, stmt, pstmt, rs);
+			JDBCUtil3.close(conn, stmt, pstmt, rs);
 		}
 				
 	}
@@ -231,7 +231,7 @@ public class T01MemberInfoTest {
 		
 		try {
 			
-			conn = JDBCUtil2.getConnection();
+			conn = JDBCUtil3.getConnection();
 			
 			String sql = "update mymember " 
 			           + "set mem_name = ?," 
@@ -258,7 +258,7 @@ public class T01MemberInfoTest {
 		} catch (SQLException ex) {
 			ex.printStackTrace();
 		} finally {
-			JDBCUtil2.close(conn, stmt, pstmt, rs);
+			JDBCUtil3.close(conn, stmt, pstmt, rs);
 		}
 		
 	}
@@ -308,7 +308,7 @@ public class T01MemberInfoTest {
 			// 서버에 필요한 오라클 정보를 넣어줌
 			//conn =  DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe", "WDH94", "java");
 			
-			conn = JDBCUtil2.getConnection(); // 만들어놓은 것을 갖고 오기만 하면 된다
+			conn = JDBCUtil3.getConnection(); // 만들어놓은 것을 갖고 오기만 하면 된다
 			
 			// 쿼리문 준비
 			String sql = "insert into mymember "
@@ -337,7 +337,7 @@ public class T01MemberInfoTest {
 		} catch (SQLException ex) {
 			ex.printStackTrace();
 		} finally {
-			JDBCUtil2.close(conn, stmt, pstmt, rs);
+			JDBCUtil3.close(conn, stmt, pstmt, rs);
 		}
 	}
 
@@ -352,7 +352,7 @@ public class T01MemberInfoTest {
 
 		try {
 			
-			conn = JDBCUtil2.getConnection();
+			conn = JDBCUtil3.getConnection();
 			
 			String sql = "select count(*) as cnt "
 					   + "from mymember " 
@@ -376,7 +376,7 @@ public class T01MemberInfoTest {
 		} catch (SQLException ex) {
 			ex.printStackTrace();
 		} finally {
-			JDBCUtil2.close(conn, stmt, pstmt, rs);
+			JDBCUtil3.close(conn, stmt, pstmt, rs);
 		}
 		
 		return exist; //마지막에 반환해준다
