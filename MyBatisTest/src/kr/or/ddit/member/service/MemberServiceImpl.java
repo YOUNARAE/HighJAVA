@@ -4,6 +4,7 @@ import java.util.List;
 
 import kr.or.ddit.member.dao.IMemberDao;
 import kr.or.ddit.member.dao.MemberDaoImpl;
+import kr.or.ddit.member.dao.MemberDaoImplForJDBC;
 import kr.or.ddit.member.vo.MemberVO;
 
 public class MemberServiceImpl implements IMemberService{
@@ -15,7 +16,8 @@ public class MemberServiceImpl implements IMemberService{
 	
 	private MemberServiceImpl() { //private로 바꿔줌
 		memDao = MemberDaoImpl.getInstance(); // private,static으로 해놔서 부르는 방식을 변경했음
-	}
+	}//여기까지 했다.
+	
 	
 	public static IMemberService getInstance() { // 겟 인스턴스 메서드
 		if(memService == null) {

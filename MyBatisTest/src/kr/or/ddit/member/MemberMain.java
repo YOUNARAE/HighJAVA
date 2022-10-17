@@ -282,7 +282,6 @@ public class MemberMain {
 		System.out.println("-------------------------------------------------------");
 		System.out.println("검색 작업 끝.");
 		
-		
 	}
 
 	

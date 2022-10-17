@@ -3,6 +3,8 @@ package kr.or.ddit.basic;
 import java.io.IOException;
 import java.io.Reader;
 import java.nio.charset.Charset;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.management.RuntimeErrorException;
 
@@ -110,5 +112,79 @@ public class MyBatisTest {
 			sqlSession.close();
 		}
 		
+		
+		// 2-3. delete 연습
+		System.out.println("delete 작업시작....");
+		
+		sqlSession = sqlSessionFactory.openSession();
+		
+		try {
+			
+			// delete 메서드의 반환값 : 성공한 레코드 수
+			int cnt = sqlSession.delete("memberTest.deleteMember", "d001");
+			
+			if(cnt > 0) {
+				System.out.println("delete 작업 성공.");
+				sqlSession.commit();
+			} else {
+				System.out.println("delete 작업 실패 !!!");
+			}
+			
+		} catch (Exception ex) {
+			sqlSession.rollback();
+			
+			throw new RuntimeException("삭제 중 예외발생!!", ex);
+		} finally {
+			sqlSession.close();
+		}
+		
+		
+		// 2-4. select 연습
+		// 응답의 결과가 여러개일 경우...(리스트로 받고 싶은 경우)
+		System.out.println("select연습(결과가 여러개인 경우...)...");
+		
+		sqlSession = sqlSessionFactory.openSession();
+		
+		List<MemberVO> memList = new ArrayList<MemberVO>();
+		
+		// 응답결과가 여러개인 경우 selectiList 메서드를 사용한다.
+		try {
+			memList = sqlSession.selectList("memberTest.selectAllMember"); //여러건을 리스트로 받고 싶을 때 쓰는 메서드 selectList
+			
+			if(memList.size()==0) {
+				System.out.println("조회된 정보가 없습니다");
+			} else {
+				for(MemberVO mv3 : memList) {
+					System.out.println("ID : " + mv3.getMemId());
+					System.out.println("이름 : " + mv3.getMemName());
+					System.out.println("전화 : " + mv3.getMemTel());
+					System.out.println("주소 : " + mv3.getMemAddr());
+					System.out.println("---------------------------");
+				}
+				System.out.println("출력 끝...");
+			}
+		} finally {
+			sqlSession.close();
+		}
+		
+		// 2) 응답 결과가 1개일 경우...
+		System.out.println("select 연습(결과과 1개인 경우...)"); //1개보다 많으면 안됨
+		
+		sqlSession = sqlSessionFactory.openSession();
+		try {
+			MemberVO mv4 = (MemberVO) sqlSession.selectOne("memberTest.selectMember","a002");
+			System.out.println("ID : " + mv4.getMemId());
+			System.out.println("이름 : " + mv4.getMemName());
+			System.out.println("전화 : " + mv4.getMemTel());
+			System.out.println("주소 : " + mv4.getMemAddr());
+			System.out.println("--------------------------");
+			// 응답결과가 1개일 경우에는 selectOne() 메서드를 사용한다.
+		} finally {
+			sqlSession.close();
+		}
+		
+		
+		
 	}
+	
 }
