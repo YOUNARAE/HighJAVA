@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration>
+
+  <Appenders>
+    <Console name="Console" target="SYSTEM_OUT">
+      <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
+    </Console>
+    
+    <File name="MyFile" fileName="logs/app.log">
+		<PatternLayout>
+			<Pattern>%d %-5p %c{1} [%t] %C{2} (%F:%L) - %m%n</Pattern>
+		</PatternLayout>    	
+    </File>
+  </Appenders>
+
+  <Loggers>
+  	<!-- 우선순위에서 제외되는 개별 로그를 보고 싶을 때 -->
+	<Logger name="log4jexam.sql" level="debug" additivity="false">
+		<AppenderRef ref="Console"/>
+		<AppenderRef ref="MyFile"/>
+	</Logger>
+<!--<Logger name="log4jexam.sql.Parameter" level="debug"> 
+		
+	</Logger>-->
+    <Logger name="kr.or.ddit.basic.T01MemberInfoTest" level="debug">
+		
+	</Logger>
+	
+    <!-- 우리가 만드는 모든 로그에 적용되는 공통적인 속성, 디폴트값이다 -->
+    <Root level="debug"> 
+      <AppenderRef ref="Console"/>
+    </Root>
+  </Loggers>
+
+</Configuration>
+
+
+
+
+

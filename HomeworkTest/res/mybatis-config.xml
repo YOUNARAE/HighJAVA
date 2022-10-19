@@ -6,6 +6,7 @@
 <configuration>
 	
 	<properties resource="db.properties" />
+	
 	<typeAliases>
 		<typeAlias type="kr.or.ddit.board.vo.BoardVO" alias="BoardVO"/>
 	</typeAliases>

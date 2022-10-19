@@ -8,10 +8,12 @@ import org.apache.ibatis.session.SqlSession;
 
 import kr.or.ddit.board.util.MyBatisUtil;
 
-public class MyBatisDao {
+public class MyBatisDao { //상속받아서 편하게 쓸 수 있는 베이스클래스를 만들었음
 
 	//
 	public <T> T selectOne(String statement, Object parameter) {
+		
+		//MybatisUtil에 쿼리문을 가져오는 메서드를 사용하기 위해 SqlSession 객체를 생성
 		SqlSession sqlSession = MyBatisUtil.getSqlSession();
 		
 		T obj = null;

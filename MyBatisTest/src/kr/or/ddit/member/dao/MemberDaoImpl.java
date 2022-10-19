@@ -42,7 +42,7 @@ public class MemberDaoImpl extends MyBatisDao implements IMemberDao {
 
 	@Override
 	public int deleteMember(String memId) {
-		return delete("member.delteMember", memId);
+		return delete("member.deleteMember", memId);
 	}
 
 	@Override

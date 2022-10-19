@@ -7,6 +7,11 @@
 	
 	<properties resource="db.properties" />
 	
+	<settings>
+		<!-- DB 컬럼명을 낙타표기법으로 속성명과 자동 매핑 처리하기 -->
+		<setting name="mapUnderscoreToCamelCase" value="true"/>
+	</settings>
+	
 	<typeAliases>
 		<typeAlias type="kr.or.ddit.member.vo.MemberVO" alias="MemberVO"/>
 	</typeAliases>

@@ -14,9 +14,9 @@ import kr.or.ddit.batis.MyBatisDao;
 import kr.or.ddit.board.util.JDBCUtil3;
 import kr.or.ddit.board.vo.BoardVO;
 
-public class BoardDaoImpl extends MyBatisDao implements IBoardDao {
+public class BoardDaoImpl extends MyBatisDao implements IBoardDao { // MyBatisDao를 상속받음
 	
-	private static IBoardDao boardDao;
+	private static IBoardDao boardDao; 
 	
 	private BoardDaoImpl() {
 	}
@@ -27,6 +27,7 @@ public class BoardDaoImpl extends MyBatisDao implements IBoardDao {
 		}
 		return boardDao;
 	}
+	// 싱글톤
 
 	@Override
 	public int insertBoard(BoardVO bv) {

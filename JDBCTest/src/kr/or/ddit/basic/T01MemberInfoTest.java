@@ -7,6 +7,9 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Scanner;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import kr.or.ddit.util.JDBCUtil3;
 
 /*
@@ -66,6 +69,12 @@ public class T01MemberInfoTest {
 	private ResultSet rs;
 	
 	private Scanner scan = new Scanner(System.in); 
+	
+	// log4j2 단독으로 직접 로그를 남기기 위한 로거 객체 생성하기
+	private static final Logger SQL_LOGGER = LogManager.getLogger("log4jexam.sql.Query"); //쿼리를 위한 로그4j 로거
+	private static final Logger PARAM_LOGGER = LogManager.getLogger("log4jexam.sql.Parameter"); //쿼리를 위한 로그4j 로거
+	private static final Logger RESULT_LOGGER = LogManager.getLogger(T01MemberInfoTest.class); //쿼리를 위한 로그4j 로거
+	
 	
 	/**
 	 * 메뉴를 출력하는 메서드
@@ -315,6 +324,8 @@ public class T01MemberInfoTest {
 					   + "(MEM_ID, MEM_NAME, MEM_TEL, MEM_ADDR, REG_DT)" 
 					   + "values (?, ?, ?, ?, sysdate)";
 			
+			SQL_LOGGER.debug("sql : " + sql);
+			
 			// 쿼리문 날림
 			pstmt = conn.prepareStatement(sql);
 			
@@ -324,8 +335,15 @@ public class T01MemberInfoTest {
 			pstmt.setString(3, memTel);
 			pstmt.setString(4, memAddr);
 			
+			PARAM_LOGGER.debug("파라미터 정보 => memId : " + memId 
+					       + ", memName : " + memName
+					       + ", memTel : " + memTel
+					       + ", memAddr : " + memAddr);
+			
 			//인서트라서 업데이트이고 셀렉트일때는 executeQuery
 			int cnt = pstmt.executeUpdate(); 
+			
+			RESULT_LOGGER.info("결과 값 : {}", cnt);
 			
 			if(cnt > 0) {
 				System.out.println(memId + " 회원정보 추가 성공.");

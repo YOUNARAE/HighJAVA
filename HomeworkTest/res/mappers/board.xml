@@ -51,7 +51,7 @@
 		delete from myboard where board_no = #{boardNo}
 	</delete>
 
-	<select id="selectAllBoard" resultType="kr.or.ddit.board.vo.BoardVO">
+	<select id="selectAllBoard" resultType="BoardVO">
 		select board_no as boardNo,
 		       board_title as boardTitle,
 		       board_content as boardContent,

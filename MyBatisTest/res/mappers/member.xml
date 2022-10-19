@@ -52,10 +52,10 @@
 	</delete>
 	
 	<select id="selectAllMember" resultType="memberVO">
-		select mem_id as memId, 
-		       mem_name as memName, 
-		       mem_tel as memTel, 
-		       mem_addr as memAddr
+		select mem_id, 
+		       mem_name, 
+		       mem_tel, 
+		       mem_addr
 		  from mymember
 	</select>
 	
@@ -96,7 +96,6 @@
 			<if test="memAddr!=null and memAddr!=''">
 				and MEM_ADDR like '%'|| #{memAddr} ||'%'			
 			</if>
-			
 	</select>
 	
 </mapper>
