@@ -36,5 +36,7 @@ public class TcpSocketClientTest {
 		System.out.println("연결 종료. ");
 		
 		dis.close();
+		
+		socket.close(); // 소켓 닫기
 	}
 }

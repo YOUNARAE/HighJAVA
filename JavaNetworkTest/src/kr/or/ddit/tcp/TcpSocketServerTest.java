@@ -28,11 +28,11 @@ public class TcpSocketServerTest {
 		
 		// OutputStream 객체를 구성하여 전송한다.
 		// 접속한 Socket의 getOutputStream() 이용하여 구한다.
-		OutputStream out = socket.getOutputStream();
+		OutputStream out = socket.getOutputStream(); //바이트 스트림으로 기반으로 해서 보내고
 		
 		DataOutputStream dos = new DataOutputStream(out);
 		
-		dos.writeUTF("어서 오세요...");
+		dos.writeUTF("어서 오세요..."); //변형된 UTF방식이라 읽을때도 readUTF로 읽어야 읽어진다.
 		System.out.println("메세지를 보냈습니다.");
 		
 		dos.close();
