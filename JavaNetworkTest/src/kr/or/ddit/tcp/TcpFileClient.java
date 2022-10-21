@@ -18,7 +18,7 @@ public class TcpFileClient {
 	private DataInputStream dis;
 	
 	public void clientStart() {
-		File file = new File("d:/D_Other/down/aaa.jpg");
+		File file = new File("d:/D_Other/som1.jpg");
 		
 		try {
 			
@@ -64,6 +64,9 @@ public class TcpFileClient {
 			}
 		}
 		
+	}
+	public static void main(String[] args) {
+		new TcpFileClient().clientStart();
 	}
 
 }

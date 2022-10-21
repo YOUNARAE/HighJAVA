@@ -8,6 +8,12 @@
 	<properties resource="db.properties" />
 	
 	<settings>
+		<!-- 데이터 등록시 해당 속성값이 존재하지 않으면(즉, null) '부적합한 열유형 1111' 예외발생함.
+			 이 경우 해당 타입을 명시적으로 알려주던지 ex) #{속성명, jdbcType=타입이름} 
+			 아래와 같이 NULL인 속성에 대하여 특정값으로 자동 설정이 가능함.
+		 -->
+		 <setting name="jdbcTypeForNull" value="Null"/>
+	
 		<!-- DB 컬럼명을 낙타표기법으로 속성명과 자동 매핑 처리하기 -->
 		<setting name="mapUnderscoreToCamelCase" value="true"/>
 	</settings>

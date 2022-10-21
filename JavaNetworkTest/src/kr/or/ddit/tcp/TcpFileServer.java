@@ -78,5 +78,8 @@ public class TcpFileServer {
 		}
 		
 	}
+	public static void main(String[] args) {
+		new TcpFileServer().serverStart();
+	}
 	
 }
