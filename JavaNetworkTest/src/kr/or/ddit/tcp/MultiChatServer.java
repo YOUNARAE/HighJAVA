@@ -81,29 +81,6 @@ public class MultiChatServer {
 	}
 	
 	
-	/**
-	 * 특정 유저에게 대화메세지를 전송하는 메서드
-	 * @param msg
-	 * @param from
-	 */
-	public void secretMessage(String msg, String sname) {
-		//Map에 저장된 사용자의 대화명 리스트 추출(key값 구하기)
-		Iterator<String> it = clients.keySet().iterator();
-		
-		while(it.hasNext()) {
-			try {
-				String name = it.next(); //대화명
-				
-				// 대화명에 해당하는 Socket객체에서 OutputStream꺼내기
-				DataOutputStream dos = new DataOutputStream(clients.get(sname).getOutputStream());
-				dos.writeUTF(msg); // 메세지 전송하기
-				
-			} catch (IOException ex) {
-				ex.printStackTrace();
-			}
-		}
-	}
-	
 	// 서버에서 클라이언트로 메세지를 전송할 Thread 클래스를 Inner 클래스로 
 	// 정의하면 부모(Outer)클래스의 멤버들을 직접 사용할 수 있다.
 	class ServerReceiver extends Thread{ 

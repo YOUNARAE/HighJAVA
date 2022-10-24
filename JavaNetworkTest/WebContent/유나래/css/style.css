@@ -1,0 +1,88 @@
+* {margin: 0; padding: 0;}
+html,body {width:100%; height: 100%;}
+#warp { width:100%; position: relative;}
+
+#hd {width:100%;background-color: rgba(255,255,255,0.9);position:fixed;top:0;left:0;z-index: 999;}
+.menu_bt {float:left; width:30px;margin:1%}
+.menu_bt img {display: block; width: 100%;}
+.logo {float:left;width:120px;margin:1%;}
+.logo img {display:block;width:100%;}
+.tag {width:100%;border-top:1px solid #e5e5e5;border-bottom:1px solid #e5e5e5;text-align: center;padding:1% 0;}
+.tag a {text-decoration: none; border-radius: 30px; border:1px solid #ccc; background-color: #ececec;
+height:30px; font-size:14px;padding:6px;color:#000}
+.tag a:hover {background-color: #000; color:#fff;border:1px solid #000;transition: 0.3s;}
+.row {width:100%;display:block;height:100%;}
+
+.search-box {
+    display: inline-flex;
+    margin:0.8% auto;
+    margin-left:20%
+}
+
+.search-txt {
+ width:400px;
+ height:36px;
+ border: 1px solid #cccc
+}
+
+.search-btn {
+    width:50px;
+    height:38px;
+    border:transparent;
+}
+
+.userbox {display:inline-flex; float:right; margin:1% 2% }
+.userbox a {float:left; width:25px;margin-left:25px;}
+.userbox a:last-child {border-radius: 25px;overflow: hidden;}
+.userbox a img{display:block; width:100%}
+
+/* side icon menu CSS */
+#lnb {clear:both;position: fixed; z-index:9999;
+top:6%;left:0;padding-top:40px;width:60px;height:100%;background-color:#fff;}
+.lnb_list {width:100%; list-style: none}
+.lnb_list li {width:100%; display: block}
+.lnb_list li:hover {background-color:#ccc;transition:0.3s}
+.lnb_list li a {width:100%;display: block; padding:25% 0;text-decoration: none;color:#444}
+.lnb_list li a img {width:20px; display: block; margin:0 auto;}
+.lnb_list li a p {font-size:10px;text-align: center}
+
+
+/* content CSS */
+#content {width:100%;height:100%;background-color:#f9f9f9;padding-top:10% }
+
+/* play list img CSS */
+.playlist {width:80%; margin:0 auto}
+.playlist tr td {padding-bottom:5%;}
+.playlist tr td a {width:98%;display: block;}
+.playlist tr td a .list_img {margin-right: 20px;overflow: hidden}
+.playlist tr td a:hover {opacity:0.3; transition: 0.4s;}
+
+.playinfo {display:block;position: relative; overflow: hidden;margin:2% 0}
+.playinfo img {display:inline-flex;float: left; width:40px; border-radius: 40px;}
+.list_text {width:80%;float:left; display:block;margin-left:5%;}
+.list_text h4 {font-size:14px; color:#111;line-height: 150%;word-break: break-all}
+.list_text p {font-size:11px;color:#444;margin: 2% 0;}
+
+
+/* sub CSS */
+.sub_con { width:85%;margin:0 auto 0 auto;padding:5% 0 0 0;position: relative; overflow: auto;}
+.sub_con .left {display:block;width:72%;float:left;}
+.sub_con .right{display:block;width:27%;float:left;margin-left:1%;}
+.mov_list tr td { padding-bottom:5px}
+
+/* text css*/
+.tag1 {color:#66cc99; font-size:12px; margin:1% 0}
+.tag2 {color:#444;font-size:14px; margin:1% 0}
+.mov_title {font-size:16px; font-weight: thin;}
+.mov_menu {width:100%; border-bottom:1px solid #999; text-align: right; padding-bottom:1%}
+.mov_menu a {margin-left:20px; text-decoration: none; color:#000; font-size: 14px;}
+
+
+.textbox {border-bottom:1px solid #666; position: relative; display: block;}
+.textbox img {display:inline-flex;float:left;border-radius: 50px; display: block;width:50px;margin: 2%;}
+.profile {float:left;display:block;margin: 3%;}
+.profile p:nth-child(1) {font-size: 16px; font-weight: 600;}
+.profile p:nth-child(2) {font-size: 13px;color:#444}
+.profile p:nth-child(3) {font-size:12px;color:#666;margin:5% 0}
+.profile p:nth-child(4) {font-size:12px;margin:5% 0}
+#morebt{text-decoration:none; color:#999; font-size:12px;}
