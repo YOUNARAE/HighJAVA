@@ -1,9 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="kr.or.ddit.tcp.MultiChatServer.ServerReceiver"/>
-<fullyQualifiedTypeName name="java.lang.Iterable"/>
-<fullyQualifiedTypeName name="java.util.Iterator"/>
-<fullyQualifiedTypeName name="kr.or.ddit.tcp.MultiChatServer"/>
 <fullyQualifiedTypeName name="kr.or.ddit.tcp.MultiChatClient"/>
 <fullyQualifiedTypeName name="kr.or.ddit.tcp.MultiChatClient.ClientSender"/>
 <fullyQualifiedTypeName name="kr.or.ddit.tcp.MultiChatClient.ClientReciver"/>
@@ -57,7 +53,11 @@
 <fullyQualifiedTypeName name="javax.lang.model.element.Element"/>
 <fullyQualifiedTypeName name="kr.or.ddit.basic.T02DOMParsingTest"/>
 <fullyQualifiedTypeName name="org.w3c.dom.NamedNodeMap"/>
-<fullyQualifiedTypeName name="org.w3c.dom.NodeList"/>
 <fullyQualifiedTypeName name="org.w3c.dom.Node"/>
+<fullyQualifiedTypeName name="java.net.URL"/>
+<fullyQualifiedTypeName name="kr.or.ddit.basic.T03DOMParsingExam"/>
+<fullyQualifiedTypeName name="org.w3c.dom.NodeList"/>
 <fullyQualifiedTypeName name="org.w3c.dom.Element"/>
+<fullyQualifiedTypeName name="javax.servlet.http.HttpServlet"/>
+<fullyQualifiedTypeName name="kr.or.ddit.basic.T01ServletLifeCycle"/>
 </qualifiedTypeNameHistroy>

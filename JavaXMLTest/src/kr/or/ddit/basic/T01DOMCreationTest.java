@@ -54,7 +54,6 @@ public class T01DOMCreationTest {
 		// booklist 엘리먼트 생성
 		Element bookList = document.createElement("booklist");
 		
-		
 		// book 엘리먼트 생성 및 속성값 설정하기
 		Element book = document.createElement("book");
 		book.setAttribute("isbn", "B001");
