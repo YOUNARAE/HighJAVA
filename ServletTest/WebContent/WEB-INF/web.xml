@@ -14,7 +14,6 @@
 	
 	
 	
-	
 	<servlet>
 		<servlet-name>T02ServletTest</servlet-name>
 		<servlet-class>kr.or.ddit.basic.T02ServletTest</servlet-class>
@@ -24,7 +23,6 @@
 		<servlet-name>T02ServletTest</servlet-name>
 		<url-pattern>/T02ServletTest</url-pattern>
 	</servlet-mapping>
-
 
 
 
@@ -40,7 +38,6 @@
 	
 	
 	
-	
 	<servlet>
 		<servlet-name>T04ErrorHandler</servlet-name>
 		<servlet-class>kr.or.ddit.basic.T04ErrorHandler</servlet-class>
@@ -53,12 +50,41 @@
 	
 	
 	
+	<servlet>
+		<servlet-name>T05ServletCookieTest</servlet-name>
+		<servlet-class>kr.or.ddit.basic.T05ServletCookieTest</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>T05ServletCookieTest</servlet-name>
+		<url-pattern>/T05ServletCookieTest</url-pattern>
+	</servlet-mapping>
+	
+
+	
+	<servlet>
+		<servlet-name>T06ServletSessionTest</servlet-name>
+		<servlet-class>kr.or.ddit.basic.T06ServletSessionTest</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>T06ServletSessionTest</servlet-name>
+		<url-pattern>/T06ServletSessionTest/*</url-pattern>
+	</servlet-mapping>
+	
+	
 	
 	<error-page>
 		<!-- <error-code>500</error-code> -->
 		<exception-type>javax.servlet.ServletException</exception-type>
 		<location>/T04ErrorHandler</location>	
 	</error-page>
+	
+	
+	
+	<session-config>
+		<session-timeout>1</session-timeout>
+	</session-config>
 	
 	
 </web-app>
