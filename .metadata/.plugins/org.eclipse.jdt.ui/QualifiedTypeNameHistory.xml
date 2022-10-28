@@ -1,25 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="java.util.Scanner"/>
-<fullyQualifiedTypeName name="kr.or.ddit.tcp.TcpFileServer"/>
-<fullyQualifiedTypeName name="kr.or.ddit.tcp.TcpFileClient"/>
-<fullyQualifiedTypeName name="java.text.SimpleDateFormat"/>
-<fullyQualifiedTypeName name="java.util.Date"/>
-<fullyQualifiedTypeName name="kr.or.ddit.udp.UdpSender"/>
-<fullyQualifiedTypeName name="java.net.SocketException"/>
-<fullyQualifiedTypeName name="kr.or.ddit.udp.UdpReceiver"/>
-<fullyQualifiedTypeName name="java.net.InetAddress"/>
-<fullyQualifiedTypeName name="java.net.DatagramSocket"/>
-<fullyQualifiedTypeName name="java.net.DatagramPacket"/>
-<fullyQualifiedTypeName name="java.lang.Exception"/>
-<fullyQualifiedTypeName name="java.lang.System"/>
-<fullyQualifiedTypeName name="kr.or.ddit.udp.UdpFileSender"/>
-<fullyQualifiedTypeName name="kr.or.ddit.udp.UdpFileReceiver"/>
-<fullyQualifiedTypeName name="java.net.ServerSocket"/>
-<fullyQualifiedTypeName name="java.lang.Thread"/>
-<fullyQualifiedTypeName name="java.net.Socket"/>
 <fullyQualifiedTypeName name="java.io.OutputStream"/>
-<fullyQualifiedTypeName name="java.io.BufferedOutputStream"/>
 <fullyQualifiedTypeName name="java.io.BufferedReader"/>
 <fullyQualifiedTypeName name="java.io.InputStreamReader"/>
 <fullyQualifiedTypeName name="java.lang.StringBuilder"/>
@@ -28,7 +9,6 @@
 <fullyQualifiedTypeName name="java.net.URLConnection"/>
 <fullyQualifiedTypeName name="kr.or.ddit.http.MyHTTPServer"/>
 <fullyQualifiedTypeName name="kr.or.ddit.http.MyHTTPServer.HttpHander"/>
-<fullyQualifiedTypeName name="java.io.FileInputStream"/>
 <fullyQualifiedTypeName name="javax.xml.parsers.DocumentBuilderFactory"/>
 <fullyQualifiedTypeName name="javax.xml.parsers.ParserConfigurationException"/>
 <fullyQualifiedTypeName name="javax.xml.parsers.DocumentBuilder"/>
@@ -55,9 +35,29 @@
 <fullyQualifiedTypeName name="javax.net.ssl.HttpsURLConnection"/>
 <fullyQualifiedTypeName name="java.util.Enumeration"/>
 <fullyQualifiedTypeName name="java.util.Arrays"/>
-<fullyQualifiedTypeName name="javax.servlet.http.HttpServlet"/>
 <fullyQualifiedTypeName name="java.lang.Throwable"/>
 <fullyQualifiedTypeName name="java.lang.Integer"/>
-<fullyQualifiedTypeName name="java.io.PrintWriter"/>
+<fullyQualifiedTypeName name="javax.security.auth.message.callback.PrivateKeyCallback.Request"/>
+<fullyQualifiedTypeName name="javax.servlet.http.Cookie"/>
+<fullyQualifiedTypeName name="java.sql.Date"/>
 <fullyQualifiedTypeName name="javax.servlet.ServletException"/>
+<fullyQualifiedTypeName name="java.io.PrintWriter"/>
+<fullyQualifiedTypeName name="javax.servlet.Filter"/>
+<fullyQualifiedTypeName name="java.util.Date"/>
+<fullyQualifiedTypeName name="java.lang.System"/>
+<fullyQualifiedTypeName name="javax.servlet.ServletContextListener"/>
+<fullyQualifiedTypeName name="javax.servlet.ServletContextAttributeListener"/>
+<fullyQualifiedTypeName name="javax.servlet.ServletContext"/>
+<fullyQualifiedTypeName name="javax.servlet.ServletRequestListener"/>
+<fullyQualifiedTypeName name="javax.servlet.ServletRequestAttributeListener"/>
+<fullyQualifiedTypeName name="javax.servlet.http.HttpSessionListener"/>
+<fullyQualifiedTypeName name="javax.servlet.http.HttpSessionAttributeListener"/>
+<fullyQualifiedTypeName name="javax.servlet.http.HttpSession"/>
+<fullyQualifiedTypeName name="javax.servlet.http.HttpSessionBindingListener"/>
+<fullyQualifiedTypeName name="kr.or.ddit.basic.MySessionBindingListener"/>
+<fullyQualifiedTypeName name="javax.servlet.http.HttpServlet"/>
+<fullyQualifiedTypeName name="javax.servlet.ServletOutputStream"/>
+<fullyQualifiedTypeName name="java.io.FileInputStream"/>
+<fullyQualifiedTypeName name="java.io.BufferedInputStream"/>
+<fullyQualifiedTypeName name="java.io.BufferedOutputStream"/>
 </qualifiedTypeNameHistroy>
