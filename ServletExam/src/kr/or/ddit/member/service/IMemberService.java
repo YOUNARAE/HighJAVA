@@ -17,12 +17,22 @@ public interface IMemberService {
 	 */
 	public int registMember(MemberVO mv); 
 	
+	
 	/**
 	 * 주어진 회원ID가 존재하는지 여부를 알아내기 위한 메서드
 	 * @param memId 확인대상 회원ID
 	 * @return 해당 회원ID가 있으면 true, 없으면 false
 	 */
 	public boolean checkMember(String memId);
+	
+	
+	/**
+	 * 주어진 회원 ID에 해당하는 회원정보를 알아내기 위한 메서드
+	 * @param mv update할 회원정보가 들어있는 MemberVO객체
+	 * @return 해당 회원 ID에 맞는 회원 정보
+	 */
+	public MemberVO getMember(String memId);
+
 	
 	/**
 	 * 회원정보를 수정하기 위한 메서드
@@ -31,11 +41,14 @@ public interface IMemberService {
 	 */
 	public int modifyMember(MemberVO mv);
 	
+	
 	/**
 	 * 회원ID를 매개변수로 받아서 해당 회원 정보를 삭제하는 메서드
 	 * @param memId 삭제할 회원ID
 	 * @return 작업성공 : 1, 작업실패 : 0
 	 */
+	
+	
 	public int removeMember(String memId);
 	
 	/**
@@ -43,6 +56,7 @@ public interface IMemberService {
 	 * @return 회원정보를 담고있는 List타입의 객체
 	 */
 	public List<MemberVO> selectAllMember();
+	
 	
 	/**
 	 * 회원정보를 검색하는 메서드

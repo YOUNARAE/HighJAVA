@@ -23,6 +23,11 @@ public class MemberDaoImpl extends MyBatisDao implements IMemberDao {
 	public int insertMember(MemberVO mv) {
 		return insert("member.insertMember", mv);
 	}
+	
+	@Override
+	public MemberVO getMember(String memId) {
+		return selectOne("member.selectMember", memId);
+	}
 
 	@Override
 	public boolean checkMember(String memId) {

@@ -17,12 +17,19 @@ public interface IMemberDao {
 	 * @return DB작업이 성공하면 1 이상의 값이 반환됨.
 	 */
 	public int insertMember(MemberVO mv); 
-	
 	/**
 	 * 주어진 회원ID가 존재하는지 여부를 알아내기 위한 메서드
 	 * @param memId 확인대상 회원ID
 	 * @return 해당 회원ID가 있으면 true, 없으면 false
 	 */
+	
+	public MemberVO getMember(String memId);
+	/**
+	 * 주어진 회원ID에 해당하는 회원정보 알아내기 위한 메서드
+	 * @param mv update할 회원정보가 들어있는 MemberVO객체
+	 * @return 작업성공 : 1, 작업실패 : 0
+	 */
+	
 	public boolean checkMember(String memId);
 	
 	/**
@@ -31,6 +38,7 @@ public interface IMemberDao {
 	 * @return 작업성공 : 1, 작업실패 : 0
 	 */
 	public int updateMember(MemberVO mv);
+	
 	
 	/**
 	 * 회원ID를 매개변수로 받아서 해당 회원 정보를 삭제하는 메서드
