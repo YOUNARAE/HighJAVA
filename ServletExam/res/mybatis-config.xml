@@ -20,6 +20,7 @@
 	
 	<typeAliases>
 		<typeAlias type="kr.or.ddit.member.vo.MemberVO" alias="MemberVO"/>
+		<typeAlias type="kr.or.ddit.comm.vo.AtchFileVO" alias="AtchFileVO"/>
 	</typeAliases>
 	
 	<environments default="dev">
@@ -41,6 +42,7 @@
 	</environments>
 	<mappers>
 		<mapper resource="mappers/member.xml" />
+		<mapper resource="mappers/atchFile.xml" />
 	</mappers>
 		
 </configuration>

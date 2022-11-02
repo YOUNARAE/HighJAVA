@@ -35,15 +35,16 @@
 	
 	<insert id="insertMember" parameterType="kr.or.ddit.member.vo.MemberVO">
 		insert into mymember 
-		(MEM_ID, MEM_NAME, MEM_TEL, MEM_ADDR, REG_DT)
-		values (#{memId}, #{memName}, #{memTel}, #{memAddr}, sysdate)
+		(MEM_ID, MEM_NAME, MEM_TEL, MEM_ADDR, REG_DT, ATCH_FILE_ID)
+		values (#{memId}, #{memName}, #{memTel}, #{memAddr}, sysdate, #{atchFileId})
 	</insert>
 	
 	<update id="updateMember" parameterType="memberVO"> <!-- 주소 줄이기 -->
 		update mymember 
 		set mem_name = #{memName}, 
 		    mem_tel = #{memTel},
-		    mem_addr = #{memAddr}
+		    mem_addr = #{memAddr},
+		    atch_file_id = #{atchFileId}
 		where mem_id = #{memId}
 	</update>
 	
@@ -55,7 +56,8 @@
 		select mem_id, 
 		       mem_name, 
 		       mem_tel, 
-		       mem_addr
+		       mem_addr,
+		       atch_file_id
 		  from mymember
 	</select>
 	
@@ -63,7 +65,8 @@
 		select mem_id as memId, 
 		       mem_name as memName, 
 		       mem_tel as memTel, 
-		       mem_addr as memAddr
+		       mem_addr as memAddr,
+		       atch_file_id as atchFileId
 		  from mymember
 		  where mem_id = #{memId}
 	</select>
@@ -79,6 +82,7 @@
 		<result column="mem_name" property="memName"/>
 		<result column="mem_tel" property="memTel"/>
 		<result column="mem_addr" property="memAddr"/>
+		<result column="atch_file_id" property="atchFileId"/>
 	</resultMap>
 	
 	<select id="searchMember" parameterType="memberVO" resultMap="memMap">
