@@ -132,12 +132,12 @@ public class AtchFileServiceImpl implements IAtchFileService {
 
 	@Override
 	public List<AtchFileVO> getAtchFileList(AtchFileVO atchFileVO) {
-		return null;
+		return fileDao.getAtchFileList(atchFileVO);
 	}
 
 	@Override
 	public AtchFileVO getAtchFileDetail(AtchFileVO atchFileVO) {
-		return null;
+		return fileDao.getAtchFileDetail(atchFileVO);
 	}
 
 }

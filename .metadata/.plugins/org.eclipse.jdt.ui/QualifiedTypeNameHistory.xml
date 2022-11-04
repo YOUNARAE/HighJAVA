@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="java.net.URL"/>
-<fullyQualifiedTypeName name="kr.or.ddit.basic.T03DOMParsingExam"/>
 <fullyQualifiedTypeName name="org.w3c.dom.NodeList"/>
 <fullyQualifiedTypeName name="org.w3c.dom.Element"/>
 <fullyQualifiedTypeName name="kr.or.ddit.basic.T01ServletLifeCycle"/>
@@ -26,9 +24,6 @@
 <fullyQualifiedTypeName name="javax.servlet.http.HttpSessionBindingListener"/>
 <fullyQualifiedTypeName name="kr.or.ddit.basic.MySessionBindingListener"/>
 <fullyQualifiedTypeName name="javax.servlet.ServletOutputStream"/>
-<fullyQualifiedTypeName name="java.io.FileInputStream"/>
-<fullyQualifiedTypeName name="java.io.BufferedInputStream"/>
-<fullyQualifiedTypeName name="java.io.BufferedOutputStream"/>
 <fullyQualifiedTypeName name="javax.servlet.RequestDispatcher"/>
 <fullyQualifiedTypeName name="javax.servlet.Filter"/>
 <fullyQualifiedTypeName name="kr.or.ddit.member.vo.MemberVO"/>
@@ -44,20 +39,25 @@
 <fullyQualifiedTypeName name="org.apache.commons.fileupload.FileUpload"/>
 <fullyQualifiedTypeName name="org.apache.tomcat.jni.File"/>
 <fullyQualifiedTypeName name="org.apache.commons.fileupload.FileItem"/>
-<fullyQualifiedTypeName name="javax.servlet.http.HttpServlet"/>
-<fullyQualifiedTypeName name="javax.servlet.annotation.WebServlet"/>
 <fullyQualifiedTypeName name="java.sql.Date"/>
 <fullyQualifiedTypeName name="java.util.Date"/>
 <fullyQualifiedTypeName name="kr.or.ddit.comm.dao.MyBatisDao"/>
 <fullyQualifiedTypeName name="javax.servlet.http.HttpServletRequest"/>
-<fullyQualifiedTypeName name="java.util.List"/>
 <fullyQualifiedTypeName name="kr.or.ddit.comm.dao.IAtchFileDao"/>
 <fullyQualifiedTypeName name="javax.servlet.http.Part"/>
 <fullyQualifiedTypeName name="java.io.File"/>
 <fullyQualifiedTypeName name="java.util.UUID"/>
-<fullyQualifiedTypeName name="kr.or.ddit.comm.service.IAtchFileService"/>
 <fullyQualifiedTypeName name="kr.or.ddit.comm.dao.AtchFileDaoImpl"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="javax.servlet.annotation.MultipartConfig"/>
+<fullyQualifiedTypeName name="javax.servlet.http.HttpServlet"/>
+<fullyQualifiedTypeName name="java.io.BufferedInputStream"/>
+<fullyQualifiedTypeName name="java.io.FileInputStream"/>
+<fullyQualifiedTypeName name="java.io.BufferedOutputStream"/>
+<fullyQualifiedTypeName name="javax.servlet.annotation.WebServlet"/>
+<fullyQualifiedTypeName name="kr.or.ddit.comm.service.IAtchFileService"/>
 <fullyQualifiedTypeName name="kr.or.ddit.comm.service.AtchFileServiceImpl"/>
 <fullyQualifiedTypeName name="kr.or.ddit.comm.vo.AtchFileVO"/>
-<fullyQualifiedTypeName name="javax.servlet.annotation.MultipartConfig"/>
+<fullyQualifiedTypeName name="org.apache.catalina.util.URLEncoder"/>
+<fullyQualifiedTypeName name="java.net.URLEncoder"/>
 </qualifiedTypeNameHistroy>

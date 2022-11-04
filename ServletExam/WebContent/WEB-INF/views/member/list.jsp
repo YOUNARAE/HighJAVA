@@ -23,6 +23,7 @@
 			<th>이름</th>
 			<th>전화번호</th>
 			<th>주소</th>
+			<th>첨부파일ID</th>
 		</tr>
 <%
 	int memSize = memList.size();
@@ -34,6 +35,7 @@
 			<td><a href="detail.do?memId=<%= memList.get(i).getMemId() %>"><%= memList.get(i).getMemName() %></a></td>
 			<td><%= memList.get(i).getMemTel() %></td>
 			<td><%= memList.get(i).getMemAddr() %></td>
+			<td><%= memList.get(i).getAtchFileId() %></td>
 		</tr>
 <%		
 		}
@@ -46,7 +48,7 @@
 	}
 %>
 	<tr align="center">
-		<td colspan="4"><a href="./insert.do">[회원 등록]</a></td>
+		<td colspan="5"><a href="./insert.do">[회원 등록]</a></td>
 	</tr>
 
 	</table>

@@ -27,7 +27,7 @@
 			</tr>
 			<tr>
 				<td>첨부파일:</td>
-				<td><input type="file" name="atchFile"></td>
+				<td><input type="file" name="atchFile" ></td>
 			</tr>
 		</table>
 		<button>회원등록</button>
